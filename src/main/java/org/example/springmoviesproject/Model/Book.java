@@ -15,12 +15,13 @@ public class Book {
     private String author;
     private String genre;
     private String era;
-    private String year;
+    @Column(name = "\"year\"")
+    private int year;
     private String isbn;
 
     public Book(){}
 
-    public Book(String title, String author, String genre, String era, String year, String isbn) {
+    public Book(String title, String author, String genre, String era, int year, String isbn) {
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -56,10 +57,10 @@ public class Book {
     public void setEra(String era){
         this.era = era;
     }
-    public String getYear(){
+    public int getYear(){
         return year;
     }
-    public void setYear(String year){
+    public void setYear(int year){
         this.year = year;
     }
     public String getIsbn(){
