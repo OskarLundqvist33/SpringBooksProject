@@ -3,13 +3,11 @@ package org.example.springmoviesproject.controller;
 import jakarta.validation.Valid;
 import org.example.springmoviesproject.Model.Book;
 import org.example.springmoviesproject.dto.CreateBookDTO;
+import org.example.springmoviesproject.dto.UpdateBookDTO;
 import org.example.springmoviesproject.service.BookService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -42,7 +40,34 @@ public class BookController {
             return "book-form";
         }
         bookService.saveBook(dto);
-        System.out.println("Saving book: " + dto.getTitle());
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable("id") Long id) {
+        bookService.deleteBook(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/update/{id}")
+    public String showUpdateBookForm(@PathVariable("id") Long id, Model model) {
+        UpdateBookDTO dto = bookService.findUpdateById(id);
+        model.addAttribute("book", dto);
+        return "book-update";
+    }
+
+    @PostMapping("/update")
+    public String updateBook(@Valid @ModelAttribute("book") UpdateBookDTO dto, BindingResult result) {
+
+        System.out.println("Trying to update book with ID: " + dto.getId());
+
+        if (result.hasErrors()) {
+            System.out.println("Validation errors occurred");
+            result.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
+            return "book-update";
+        }
+        bookService.updateBook(dto);
+        System.out.println("Book updated successfully, redirecting to home page");
         return "redirect:/";
     }
 }

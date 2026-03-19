@@ -1,12 +1,14 @@
 package org.example.springmoviesproject.dto;
 
+import java.time.LocalDate;
+
 public class BookDTO {
     private long id;
     private String title;
     private String author;
     private String genre;
     private String era;
-    private int year;
+    private LocalDate publishDate;
     private String isbn;
 
     public long getId() {
@@ -49,12 +51,12 @@ public class BookDTO {
         this.era = era;
     }
 
-    public int getYear() {
-        return year;
+    public LocalDate getPublishDate() {
+        return publishDate;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setPublishDate(LocalDate publishDate) {
+        this.publishDate = publishDate;
     }
 
     public String getIsbn() {

@@ -2,6 +2,9 @@ package org.example.springmoviesproject.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.time.LocalDate;
 
 @Entity
 public class Book {
@@ -15,18 +18,18 @@ public class Book {
     private String author;
     private String genre;
     private String era;
-    @Column(name = "\"year\"")
-    private int year;
+    @NotNull(message = "Date has to be in format yyyy-mm-dd")
+    private LocalDate publishDate;
     private String isbn;
 
     public Book(){}
 
-    public Book(String title, String author, String genre, String era, int year, String isbn) {
+    public Book(String title, String author, String genre, String era, LocalDate publishDate, String isbn) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.era = era;
-        this.year = year;
+        this.publishDate = publishDate;
         this.isbn = isbn;
     }
 
@@ -57,11 +60,11 @@ public class Book {
     public void setEra(String era){
         this.era = era;
     }
-    public int getYear(){
-        return year;
+    public LocalDate getPublishDate() {
+        return publishDate;
     }
-    public void setYear(int year){
-        this.year = year;
+    public void setPublishDate(LocalDate publishDate) {
+        this.publishDate = publishDate;
     }
     public String getIsbn(){
         return isbn;

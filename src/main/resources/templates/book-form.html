@@ -11,32 +11,56 @@
     <form th:action="@{/save}" th:object="${book}" method="post" class="col.md.6">
         <div class="mb-3">
             <label class="form-label">Title</label>
-            <input type="text" th:field="*{title}" class="form-control"/>
+            <input type="text" th:field="*{title}" class="form-control"
+                   th:classappend="${#fields.hasErrors('title')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+                Invalid title
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Author</label>
-            <input type="text" th:field="*{author}" class="form-control"/>
+            <input type="text" th:field="*{author}" class="form-control"
+                   th:classappend="${#fields.hasErrors('author')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">
+                Invalid input
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Genre</label>
-            <input type="text" th:field="*{genre}" class="form-control"/>
+            <input type="text" th:field="*{genre}" class="form-control"
+                   th:classappend="${#fields.hasErrors('genre')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">
+                Invalid input
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Era</label>
-            <input type="text" th:field="*{era}" class="form-control"/>
+            <input type="text" th:field="*{era}" class="form-control"
+                   th:classappend="${#fields.hasErrors('era')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('era')}" th:errors="*{era}">
+                Invalid input
+            </div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Year</label>
-            <input type="text" th:field="*{year}" class="form-control"/>
+            <label class="form-label">publishDate</label>
+            <input type="text" th:field="*{publishDate}" class="form-control"
+                   th:classappend="${#fields.hasErrors('publishDate')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('publishDate')}" th:errors="*{publishDate}">
+                Invalid input
+            </div>
         </div>
 
         <div class="mb-3">
             <label class="form-label">isbn</label>
-            <input type="text" th:field="*{isbn}" class="form-control"/>
+            <input type="text" th:field="*{isbn}" class="form-control"
+                   th:classappend="${#fields.hasErrors('isbn')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}">
+                Invalid input
+            </div>
         </div>
 
         <button type="submit" class="btn btn-success">Save book</button>

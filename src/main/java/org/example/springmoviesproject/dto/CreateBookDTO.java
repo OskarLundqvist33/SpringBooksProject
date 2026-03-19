@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
+import java.time.LocalDate;
+
 public class CreateBookDTO {
     @NotBlank(message = "Title is not allowed to be empty")
     private String title;
@@ -17,8 +19,8 @@ public class CreateBookDTO {
     @NotBlank(message = "Era is not allowed to be empty")
     private String era;
 
-    @NotNull(message = "Year is not allowed to be empty")
-    private int year;
+    @NotNull(message = "Date has to be in format yyyy-mm-dd")
+    private LocalDate publishDate;
 
     @Pattern(regexp = "^(?:ISBN(?:-13)?:?\\s*)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-\\s]){3})[0-9[-\\s]]+X?$|97[89][0-9]{10}$|(?=(?:[0-9]+[-\\s]){4})[0-9[-\\s]]+$)[0-9]{1,5}[-\\s]?[0-9]+[-\\s]?[0-9]+[-\\s]?[0-9]*[0-9X]$")
     private String isbn;
@@ -57,12 +59,12 @@ public class CreateBookDTO {
         this.era = era;
     }
 
-    public int getYear() {
-        return year;
+    public LocalDate getPublishDate() {
+        return publishDate;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setPublishDate(LocalDate publishDate) {
+        this.publishDate = publishDate;
     }
 
     public String getIsbn() {
