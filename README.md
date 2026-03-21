@@ -1,0 +1,1 @@
+This is a Spring Boot project with a book list that's editable and inetractive. This project was also to learn Spring security and therefore includes a minor security feature. 
