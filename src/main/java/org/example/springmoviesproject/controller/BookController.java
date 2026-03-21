@@ -2,6 +2,7 @@ package org.example.springmoviesproject.controller;
 
 import jakarta.validation.Valid;
 import org.example.springmoviesproject.Model.Book;
+import org.example.springmoviesproject.dto.BookDTO;
 import org.example.springmoviesproject.dto.CreateBookDTO;
 import org.example.springmoviesproject.dto.UpdateBookDTO;
 import org.example.springmoviesproject.service.BookService;
@@ -69,6 +70,13 @@ public class BookController {
         bookService.updateBook(dto);
         System.out.println("Book updated successfully, redirecting to home page");
         return "redirect:/";
+    }
+
+    @GetMapping("/{id}")
+    public String showBookDetails(@PathVariable("id") Long id, Model model) {
+        BookDTO book = bookService.findDtoById(id);
+        model.addAttribute("book", book);
+        return "book-details";
     }
 }
 

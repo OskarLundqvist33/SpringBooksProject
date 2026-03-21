@@ -53,4 +53,10 @@ public class BookService {
         bookMapper.updateEntity(dto, book);
         bookRepository.save(book);
     }
+
+    public BookDTO findDtoById(Long id) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Book with id " + id + " could not be found"));
+        return bookMapper.toDTO(book);
+    }
 }

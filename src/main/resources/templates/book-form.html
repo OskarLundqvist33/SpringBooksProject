@@ -63,6 +63,13 @@
             </div>
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea th:field="*{description}" class="form-control" rows="4"
+                      placeholder="Enter book description"></textarea>
+            <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></div>
+        </div>
+
         <button type="submit" class="btn btn-success">Save book</button>
         <a href="/" class="btn class-secondary">Cancel</a>
     </form>

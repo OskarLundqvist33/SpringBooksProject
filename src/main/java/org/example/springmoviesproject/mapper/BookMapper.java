@@ -18,6 +18,7 @@ public class BookMapper {
         dto.setEra(book.getEra());
         dto.setPublishDate(book.getPublishDate());
         dto.setIsbn(book.getIsbn());
+        dto.setDescription(book.getDescription());
         return dto;
     }
 
@@ -29,6 +30,7 @@ public class BookMapper {
         book.setEra(dto.getEra());
         book.setPublishDate(dto.getPublishDate());
         book.setIsbn(dto.getIsbn());
+        book.setDescription(dto.getDescription());
         return book;
     }
 
@@ -41,6 +43,7 @@ public class BookMapper {
         dto.setEra(book.getEra());
         dto.setPublishDate(book.getPublishDate());
         dto.setIsbn(book.getIsbn());
+        dto.setDescription(book.getDescription());
         return dto;
     }
 
@@ -51,5 +54,6 @@ public class BookMapper {
         book.setEra(dto.getEra());
         book.setPublishDate(dto.getPublishDate());
         book.setIsbn(dto.getIsbn());
+        book.setDescription(dto.getDescription());
     }
 }

@@ -21,16 +21,18 @@ public class Book {
     @NotNull(message = "Date has to be in format yyyy-mm-dd")
     private LocalDate publishDate;
     private String isbn;
+    private String description;
 
     public Book(){}
 
-    public Book(String title, String author, String genre, String era, LocalDate publishDate, String isbn) {
+    public Book(String title, String author, String genre, String era, LocalDate publishDate, String isbn, String description) {
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.era = era;
         this.publishDate = publishDate;
         this.isbn = isbn;
+        this.description = description;
     }
 
     public Long getId() {
@@ -71,5 +73,11 @@ public class Book {
     }
     public void setIsbn(String isbn){
         this.isbn = isbn;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public void setDescription(String description){
+        this.description = description;
     }
 }

@@ -10,6 +10,7 @@ public class BookDTO {
     private String era;
     private LocalDate publishDate;
     private String isbn;
+    private String description;
 
     public long getId() {
         return id;
@@ -65,5 +66,13 @@ public class BookDTO {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

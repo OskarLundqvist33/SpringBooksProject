@@ -29,6 +29,8 @@ public class UpdateBookDTO {
     @Pattern(regexp = "^(?:ISBN(?:-13)?:?\\s*)?(?=[0-9X]{10}$|(?=(?:[0-9]+[-\\s]){3})[0-9[-\\s]]+X?$|97[89][0-9]{10}$|(?=(?:[0-9]+[-\\s]){4})[0-9[-\\s]]+$)[0-9]{1,5}[-\\s]?[0-9]+[-\\s]?[0-9]+[-\\s]?[0-9]*[0-9X]$")
     private String isbn;
 
+    private String description;
+
 
 
     public Long getId() {
@@ -85,5 +87,13 @@ public class UpdateBookDTO {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
