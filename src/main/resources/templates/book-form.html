@@ -46,21 +46,25 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">publishDate</label>
-            <input type="text" th:field="*{publishDate}" class="form-control"
-                   th:classappend="${#fields.hasErrors('publishDate')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('publishDate')}" th:errors="*{publishDate}">
-                Invalid input
-            </div>
+            <label for="publishDate" class="form-label">Publication date</label>
+            <input type="date"
+                   id="publishDate"
+                   th:field="*{publishDate}"
+                   class="form-control"
+                   min="0001-01-01"
+                   th:max="${#temporals.format(#temporals.createToday(), 'yyyy-MM-dd')}" />
+
+            <div th:if="${#fields.hasErrors('publishDate')}" th:errors="*{publishDate}" class="text-danger mt-1"></div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">isbn</label>
-            <input type="text" th:field="*{isbn}" class="form-control"
-                   th:classappend="${#fields.hasErrors('isbn')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}">
-                Invalid input
-            </div>
+            <label for="isbn" class="form-label">ISBN-nummer</label>
+            <input type="text" th:field="*{isbn}" class="form-control" id="isbn"
+                   placeholder="t.ex. 9781234567890" />
+
+            <div class="form-text">ISBN ska bestå av 10 eller 13 siffror.</div>
+
+            <div th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></div>
         </div>
 
         <div class="mb-3">

@@ -13,30 +13,43 @@
         <div class="mb-3">
             <label class="form-label">Title</label>
             <input type="text" th:field="*{title}" class="form-control" />
+            <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-danger"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Author</label>
             <input type="text" th:field="*{author}" class="form-control" />
+            <div th:if="${#fields.hasErrors('author')}" th:errors="*{author}" class="text-danger"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Genre</label>
             <input type="text" th:field="*{genre}" class="form-control" />
+            <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}" class="text-danger"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Era</label>
             <input type="text" th:field="*{era}" class="form-control" />
+            <div th:if="${#fields.hasErrors('era')}" th:errors="*{era}" class="text-danger"></div>
         </div>
         <div class="mb-3">
-            <label class="form-label">Date</label>
-            <input type="text" th:field="*{publishDate}" class="form-control" />
+            <label for="publishDate" class="form-label">Publication date</label>
+            <input type="date"
+                   id="publishDate"
+                   th:field="*{publishDate}"
+                   class="form-control"
+                   min="0001-01-01"
+                   th:max="${#temporals.format(#temporals.createToday(), 'yyyy-MM-dd')}" />
+
+            <div th:if="${#fields.hasErrors('publishDate')}" th:errors="*{publishDate}" class="text-danger mt-1"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">ISBN</label>
             <input type="text" th:field="*{isbn}" class="form-control" />
+            <div th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Description</label>
             <textarea th:field="*{description}" class="form-control"></textarea>
+            <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></div>
         </div>
 
         <button type="submit" class="btn btn-primary">Update book</button>

@@ -1,7 +1,6 @@
 package org.example.springmoviesproject.controller;
 
 import jakarta.validation.Valid;
-import org.example.springmoviesproject.Model.Book;
 import org.example.springmoviesproject.dto.BookDTO;
 import org.example.springmoviesproject.dto.CreateBookDTO;
 import org.example.springmoviesproject.dto.UpdateBookDTO;
@@ -10,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
-
-import java.util.List;
 
 @RequestMapping("/")
 @Controller
